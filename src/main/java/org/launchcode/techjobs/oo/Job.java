@@ -95,6 +95,15 @@ public class Job {
     }
     @Override
     public String toString() {
+
+        if (this.getName() == null &&
+            this.getEmployer() == null &&
+            this.getLocation() == null &&
+            this.getPositionType() == null &&
+            this.getCoreCompetency() == null) {
+         return "OOPS! This job does not seem to exist.";
+        }
+
         String newline = System.lineSeparator();
 
         int ID= this.getId();
@@ -104,6 +113,7 @@ public class Job {
         String positionType = (this.getPositionType().getValue().isEmpty()) ? "Data not available" : this.getPositionType().getValue();
         String coreCompetency = (this.getCoreCompetency().getValue().isEmpty()) ? "Data not available" : this.getCoreCompetency().getValue();
 
+
         return newline +
                 "ID: " + ID + newline +
                 "Name: " + name + newline +
@@ -112,7 +122,4 @@ public class Job {
                 "Position Type: " + positionType + newline +
                 "Core Competency: " + coreCompetency + newline;
     }
-
-
-
 }
